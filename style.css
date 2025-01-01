@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -11,67 +17,61 @@ body {
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
     width: 100%;
     height: 100%;
-}
-.sideber-left, .logo, .main, .sideber-right {
-    flex: 1; /* フレックスボックスの影響を受けるように設定 */
-    box-sizing: border-box; /* パディングとボーダーを含めたサイズ計算 */
 }
 
 .sideber-left {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* ヘッダーを上部に配置 */
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    width: 138px; /* 幅を指定された値に調整 */
     background: #E3E3E3;
     padding-top: 56px;
     gap: 20px; /* 適切な間隔に調整 */
-    flex: 0 0 138px; /* 幅を指定された値に調整 */
-    height: 100vh; /* Figmaで設計した高さに調整 */
 }
 
 .logo {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    width: 326px; /* 幅を指定された値に調整 */
     background: #FFF;
     padding: 20px; /* 適切な間隔に調整 */
-    flex: 0 0 326px; /* 幅を指定された値に調整 */
-    height: 100vh; /* Figmaで設計した高さに調整 */
-}
-
-.main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #FFF;
-    padding: 20px; /* 適切な間隔に調整 */
-    flex: 0 0 1120px; /* 幅を指定された値に調整 */
-    height: 100vh; /* Figmaで設計した高さに調整 */
 }
 
 .sideber-right {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
+    width: 120px; /* 幅を指定された値に調整 */
     background: #E3E3E3;
     padding: 20px; /* 適切な間隔に調整 */
-    flex: 0 0 280px; /* 幅を指定された値に調整 */
-    height: 100vh; /* Figmaで設計した高さに調整 */
+}
+
+.main {
+    flex: 1; /* 残りのスペースを占める */
+    height: 100vh;
+    overflow-y: auto; /* 縦方向のスクロールを有効にする */
+    padding: 20px; /* 内側の余白を追加 */
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 縦方向に中央揃え */
+    align-items: center; /* 横方向に中央揃え */
 }
 
 .header {
+    display: flex;
+    justify-content: flex-start; /* 左寄せに変更 */
+    align-items: center; /* 中央揃えに変更 */
     width: 100%; /* sideber-leftの幅に依存 */
     height: 69px;
     overflow: hidden;
     padding: 12px 0px 13px 15px;
-    display: flex;
-    justify-content: flex-start; /* 左寄せに変更 */
-    align-items: center; /* 中央揃えに変更 */
 }
 
 .profile-head {
@@ -91,15 +91,15 @@ body {
 }
 
 .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%; /* 必要に応じて調整 */
     overflow: hidden;
     padding: 0px 46px 39.932px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     gap: -0.068px;
 }
 
@@ -195,7 +195,6 @@ body {
     }
 }
 
-
 .top-footer {
     position: fixed;
     bottom: 0;
@@ -213,6 +212,9 @@ body {
 }
 
 .drawer-menu {
+    display: flex;
+    justify-content: space-between; /* 左右に配置 */
+    align-items: center;
     position: fixed;
     top: -100%;
     left: 0;
@@ -220,9 +222,6 @@ body {
     height: 35%; /* 高さを調整 */
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
-    display: flex;
-    justify-content: space-between; /* 左右に配置 */
-    align-items: center;
     padding: 20px; /* 内側の余白を追加 */
     transition: top 0.5s ease;
     z-index: 1000;
@@ -238,12 +237,12 @@ body {
 }
 
 .drawer-img-container {
-    flex: 1;
-    max-width: 250px; /* ドロワーメニュー内での最大幅を設定 */
-    height: 100%; /* ドロワーメニュー内での高さを設定 */
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
+    max-width: 250px; /* ドロワーメニュー内での最大幅を設定 */
+    height: 100%; /* ドロワーメニュー内での高さを設定 */
     overflow: hidden; /* はみ出しを防ぐ */
     margin-left: -10px; /* 左にずらすために間隔を調整 */
     margin-right: 15px;
@@ -261,4 +260,40 @@ body {
 
 .skills {
     animation: slideInFromBottom 1s ease-out;
+}
+
+.intro, .works, .skills {
+    width: 100%; /* 親要素の幅に合わせる */
+    max-width: 800px; /* 必要に応じて調整 */
+    margin: 0 auto; /* 中央揃え */
+    padding: 20px; /* 内側の余白を追加 */
+    background: #FFF; /* 背景色を設定 */
+    border-radius: 8px; /* 角を丸くする */
+    text-align: center; /* テキストを中央揃え */
+    margin-bottom: 0; /* 下の余白を削除 */
+}
+
+.works {
+    margin-top: 2200px; /* 上の余白を追加 */
+    margin-bottom: 20px; /* 下の余白を追加 */
+}
+
+.work-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* 親要素の幅に合わせる */
+    height: auto; /* 高さを自動調整 */
+    overflow: hidden; /* はみ出しを防ぐ */
+}
+
+.work-img img {
+    max-width: 75%; /* 画像の最大幅を親要素に合わせる */
+    height: auto; /* 高さを自動調整 */
+    object-fit: cover; /* 画像のアスペクト比を維持しつつ、コンテナに収める */
+}
+
+.work-item {
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
